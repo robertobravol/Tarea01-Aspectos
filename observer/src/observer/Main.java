@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Main {
+	
+	public static CambiadorColor cambiador = new CambiadorColor(); // ¡Nombre actualizado!
 
 	public static void main(String[] args) {
 	
@@ -23,7 +25,16 @@ public class Main {
 
 		        // Crear botón
 		        JButton boton = new JButton("Cambiar color");
+		        
+		        // Agregar componentes
+		        ventana.add(boton);
+		        ventana.add(panel);
+		        ventana.setVisible(true);
 
+		        // Agregar observadores
+		        cambiador.agregarListener(new ConsolaLogger("Observador 1"));
+		        cambiador.agregarListener(new ConsolaLogger("Observador 2"));
+		        
 		        // Acción al hacer clic
 		        boton.addActionListener(e -> {
 		            panel.setBackground(Color.YELLOW);
