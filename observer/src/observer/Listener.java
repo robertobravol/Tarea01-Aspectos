@@ -1,5 +1,7 @@
 package observer;
 
+import java.awt.Color;
+
 public interface Listener {
-	void actualizar(String nuevoColor);
+	void actualizar(Color nuevoColor);
 }

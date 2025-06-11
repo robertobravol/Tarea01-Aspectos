@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Main {
-	
-	public static CambiadorColor cambiador = new CambiadorColor(); // ¡Nombre actualizado!
 
+	public static ManejadorBoton observableManejador;
+	
 	public static void main(String[] args) {
 	
 		        // Crear la ventana
@@ -19,31 +19,35 @@ public class Main {
 		        
 		        ventana.setLayout(new FlowLayout());
 		        
-		        // Crear panel para cambiar el color
-		        JPanel panel = new JPanel();
-		        panel.setPreferredSize(new Dimension(250, 100));
 
-		        // Crear botón
-		        JButton boton = new JButton("Cambiar color");
+		        // Creacion botones
+		        JButton boton1 = new JButton("Boton 1");
+		        JButton boton2 = new JButton("Boton 2");
+		        JButton boton3 = new JButton("Boton 3");
+		        
+		        //Creacion manejador de boton(observable)
+		        observableManejador = new ManejadorBoton();
+		        
+		        //Creacion manejador Fondo(Observador)
+		        ManejadorFondo observadorFondo = new ManejadorFondo(ventana);
+		        
+		        //aniadir como observador al observable
+		        observableManejador.addListener(observadorFondo);
+		        
+		        //capturadores de click
+		        boton1.addActionListener(e -> observableManejador.accionBoton(boton1, Color.RED));
+		        boton2.addActionListener(e -> observableManejador.accionBoton(boton2, Color.GREEN));
+		        boton3.addActionListener(e -> observableManejador.accionBoton(boton3, Color.BLUE));
 		        
 		        // Agregar componentes
-		        ventana.add(boton);
-		        ventana.add(panel);
+		        ventana.add(boton1);
+		        ventana.add(boton2);
+		        ventana.add(boton3);
 		        ventana.setVisible(true);
 
-		        // Agregar observadores
-		        cambiador.agregarListener(new ConsolaLogger("Observador 1"));
-		        cambiador.agregarListener(new ConsolaLogger("Observador 2"));
+		  
 		        
-		        // Acción al hacer clic
-		        boton.addActionListener(e -> {
-		            panel.setBackground(Color.YELLOW);
-		            System.out.println("Fondo cambiado a AMARILLO");
-		        });
-
-		        // Agregar botón y panel a la ventana
-		        ventana.add(boton);
-		        ventana.add(panel);
+		        
 
 		        // Mostrar ventana
 		        ventana.setVisible(true);

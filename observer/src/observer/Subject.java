@@ -1,7 +1,12 @@
 package observer;
 
+import java.awt.Color;
+
 public interface Subject {
-    void agregarListener(Listener listener);
-    void quitarListener(Listener listener);
-    void notificarListeners(String nuevoColor);
+	
+	void addListener(Listener listener);
+	void deleteListener(Listener listener);
+	void notificar(Color color);
+	
+	
 }
