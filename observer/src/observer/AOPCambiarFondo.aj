@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+//implementacion de un aspecto que identifica cuando se ejecuta la funcion accionBoton().
 public aspect AOPCambiarFondo {
 
 

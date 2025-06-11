@@ -28,11 +28,14 @@ public class Main {
 		        //Creacion manejador de boton(observable)
 		        observableManejador = new ManejadorBoton();
 		        
+		        //creacion log de consola(Observador)
+		        ConsolaLogger consolaLogger = new ConsolaLogger();
 		        //Creacion manejador Fondo(Observador)
 		        ManejadorFondo observadorFondo = new ManejadorFondo(ventana);
 		        
-		        //aniadir como observador al observable
+		        //aniadir los observadores al observable
 		        observableManejador.addListener(observadorFondo);
+		        observableManejador.addListener(consolaLogger);
 		        
 		        //capturadores de click
 		        boton1.addActionListener(e -> observableManejador.accionBoton(boton1, Color.RED));
