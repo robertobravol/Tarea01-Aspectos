@@ -12,4 +12,9 @@ public aspect AOPCambiarFondo {
         System.out.println("Aspecto (aj): Cambiando fondo tras accionBoton de " + boton.getText());
         Main.observableManejador.notificar(color);
     }
+    
+    after(JButton boton, Color colorPorDefecto): execution(* ManejadorBoton.restablecerFondo(..)) && args(boton, colorPorDefecto) {
+        System.out.println("Aspecto (aj): Restableciendo fondo tras accionBoton de " + boton.getText());
+        Main.observableManejador.notificar(colorPorDefecto);
+    }
 }

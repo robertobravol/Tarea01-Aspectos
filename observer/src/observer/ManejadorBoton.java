@@ -10,9 +10,15 @@ public class ManejadorBoton implements Subject {
 
 	 		//metodo trigger para el AOP de cambio de fondo
 	 		public void accionBoton(JButton boton, Color color) {
-	 			System.out.println("Boton " + boton.getText() + " Seleccionado. ");
+	 			System.out.println("Boton " + boton.getText() + " seleccionado.");
 	 			//notificar(color); ya no aqui, se llama en el ASPECTO
 	 		}
+	 		
+	 		public void restablecerFondo(JButton boton, Color colorPorDefecto) {
+	 			System.out.println("Boton " + boton.getText() + " seleccionado.");
+	 		}
+	 		
+	 		
 	 
 	    	@Override
 	    	public void addListener(Listener listener) {

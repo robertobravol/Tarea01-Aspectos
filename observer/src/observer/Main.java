@@ -14,6 +14,9 @@ public class Main {
 		        JFrame ventana = new JFrame("Implementando AOP y Observer");
 		        ventana.setSize(400, 300);
 		        
+		        //Guardar color de fondo por defecto
+		        Color colorPorDefecto = ventana.getContentPane().getBackground();
+		        
 		        //seteado de terminar ejecucion al cerrar ventana
 		        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		        
@@ -24,6 +27,7 @@ public class Main {
 		        JButton boton1 = new JButton("Boton 1");
 		        JButton boton2 = new JButton("Boton 2");
 		        JButton boton3 = new JButton("Boton 3");
+		        JButton boton4 = new JButton("Restaurar fondo");
 		        
 		        //Creacion manejador de boton(observable)
 		        observableManejador = new ManejadorBoton();
@@ -41,16 +45,14 @@ public class Main {
 		        boton1.addActionListener(e -> observableManejador.accionBoton(boton1, Color.RED));
 		        boton2.addActionListener(e -> observableManejador.accionBoton(boton2, Color.GREEN));
 		        boton3.addActionListener(e -> observableManejador.accionBoton(boton3, Color.BLUE));
+		        boton4.addActionListener(e -> observableManejador.restablecerFondo(boton4, colorPorDefecto));
 		        
 		        // Agregar componentes
 		        ventana.add(boton1);
 		        ventana.add(boton2);
 		        ventana.add(boton3);
+		        ventana.add(boton4);
 		        ventana.setVisible(true);
-
-		  
-		        
-		        
 
 		        // Mostrar ventana
 		        ventana.setVisible(true);
